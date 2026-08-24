@@ -185,40 +185,55 @@ const navigationItems = [
     path: '/',
   },
   {
-    label: 'Explore',
+    label: 'Search',
     icon: '⌕',
     path: '/search',
   },
   {
-    label: 'Categories',
-    icon: '◫',
-    path: '/search',
+    label: 'Profile',
+    icon: '♙',
+    path: '/profile',
+  },
+  {
+    label: 'Cart',
+    icon: '🛒',
+    path: '/cart',
+  },
+  {
+    label: 'Checkout',
+    icon: '▣',
+    path: '/checkout',
+  },
+  {
+    label: 'Order Details',
+    icon: '▤',
+    path: '/order-details',
+  },
+  {
+    label: 'Help & FAQ',
+    icon: '?',
+    path: '/help',
+  },
+  {
+    label: 'Report Listing',
+    icon: '⚑',
+    path: '/report-listing',
+  },
+  {
+    label: 'Terms & Privacy',
+    icon: '▱',
+    path: '/terms',
+  },
+  {
+    label: 'Create Listing',
+    icon: '+',
+    path: '/create-listing',
   },
   {
     label: 'Messages',
     icon: '✉',
     path: '/messages',
   },
-  {
-    label: 'Notifications',
-    icon: '●',
-    path: '/notifications',
-  },
-  {
-    label: 'Favorites',
-    icon: '♡',
-    path: '/favorites',
-  },
-  {
-    label: 'History',
-    icon: '◷',
-    path: '/history',
-  },
-  {
-  label: 'Following',
-  icon: '♙',
-  path: '/following',
-},
 ];
 
 
@@ -338,15 +353,7 @@ export default function Home() {
               }}
             >
               <span className="nav-icon">
-                {item.icon === 'logo' ? (
-                  <img
-                    src={logo}
-                    alt=""
-                    className="following-logo"
-                  />
-                ) : (
-                  item.icon
-                )}
+                {item.icon}
               </span>
 
               <span className="nav-label">
