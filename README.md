@@ -1,4 +1,4 @@
-Project Name: UniTrade – Student Marketplace Platform
+**Project Name: UniTrade – Student Marketplace Platform**
 
 1. Project Sponsor
 The project sponsor is TM3 Group members, working under the supervision of the academic project supervisor. The development team will be responsible for system design, development, and testing. The primary contact for the project will be Reotshepile Stock.
