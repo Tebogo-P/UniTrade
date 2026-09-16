@@ -1,75 +1,3 @@
-import { useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
-import './Search.css';
-
-const products = [
-  {
-    id: 1,
-    name: 'Hacking: The Art of Exploitation',
-    price: 'R150',
-    seller: 'Thabo M.',
-    category: 'Academics',
-    location: 'Cape Town',
-    condition: 'Good',
-    image: '/src/assets/hacking-book.JPG',
-  },
-  {
-    id: 2,
-    name: 'Electric Kettle',
-    price: 'R170',
-    seller: 'Lerato K.',
-    category: 'Res & Living',
-    location: 'Cape Town',
-    condition: 'Like New',
-    image: '/src/assets/kettle.JPG',
-  },
-  {
-    id: 3,
-    name: 'Apple Charger',
-    price: 'R250',
-    seller: 'Siyabonga N.',
-    category: 'Electronics',
-    location: 'Cape Town',
-    condition: 'Good',
-    image: '/src/assets/charger.JPG',
-  },
-  {
-    id: 4,
-    name: 'Campus Backpack',
-    price: 'R200',
-    seller: 'Amahle P.',
-    category: 'Fashion',
-    location: 'Cape Town',
-    condition: 'Good',
-    image: '/src/assets/backpack.JPG',
-  },
-  {
-    id: 5,
-    name: 'Nike Air Force 1',
-    price: 'R550',
-    seller: 'Liam S.',
-    category: 'Fashion',
-    location: 'Cape Town',
-    condition: 'Like New',
-    image: '/src/assets/nike-air-force.JPG',
-  },
-];
-
-const categories = [
-  'All',
-  'Academics',
-  'Electronics',
-  'Res & Living',
-  'Fashion',
-  'Sports',
-  'Beauty',
-  'Music',
-];
-
-
-/* =========================
-   SIDEBAR NAVIGATION
-========================= */
 
 const navigationItems = [
   {
@@ -520,3 +448,86 @@ function Search() {
 }
 
 export default Search;
+import { useState } from "react";
+
+export default function Search() {
+    const [searchTerm, setSearchTerm] = useState("");
+    const [category, setCategory] = useState("");
+
+    const handleSearch = (e) => {
+        e.preventDefault();
+
+        console.log("Searching for:", {
+            searchTerm,
+            category,
+        });
+    };
+
+    return (
+        <div className="container py-4">
+            <div className="mb-4">
+                <h1 className="fw-bold">Search Marketplace</h1>
+                <p className="text-muted">
+                    Find products and items available on UniTrade.
+                </p>
+            </div>
+
+            <div className="card shadow-sm border-0 mb-4">
+                <div className="card-body p-4">
+                    <form onSubmit={handleSearch}>
+                        <div className="row align-items-end">
+                            <div className="col-md-7 mb-3">
+                                <label htmlFor="searchTerm" className="form-label fw-semibold">
+                                    Search
+                                </label>
+
+                                <input
+                                    type="text"
+                                    className="form-control"
+                                    id="searchTerm"
+                                    placeholder="Search for books, laptops, clothes..."
+                                    value={searchTerm}
+                                    onChange={(e) => setSearchTerm(e.target.value)}
+                                />
+                            </div>
+
+                            <div className="col-md-3 mb-3">
+                                <label htmlFor="category" className="form-label fw-semibold">
+                                    Category
+                                </label>
+
+                                <select
+                                    className="form-select"
+                                    id="category"
+                                    value={category}
+                                    onChange={(e) => setCategory(e.target.value)}
+                                >
+                                    <option value="">All Categories</option>
+                                    <option value="electronics">Electronics</option>
+                                    <option value="books">Books</option>
+                                    <option value="clothing">Clothing</option>
+                                    <option value="furniture">Furniture</option>
+                                    <option value="stationery">Stationery</option>
+                                    <option value="other">Other</option>
+                                </select>
+                            </div>
+
+                            <div className="col-md-2 mb-3">
+                                <button type="submit" className="btn btn-primary w-100">
+                                    Search
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            <div className="text-center py-5">
+                <h5>No listings found</h5>
+                <p className="text-muted">
+                    Search for an item to see available listings.
+                </p>
+            </div>
+        </div>
+    );
+}
